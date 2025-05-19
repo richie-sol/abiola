@@ -13,3 +13,10 @@ const greeting = document.getElementById("time");
         greeting.style.color = "darkblue"
     }
     
+    document.getElementById('scroll-to-top').addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      });

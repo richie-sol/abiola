@@ -9,7 +9,9 @@
         background-size: 10px 10px;
     }
 }
-
+.visibility{
+	display:none;
+}
 .slide-in{
     animation: slidein 1s ease 0s 1 normal forwards;
 }
