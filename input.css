@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    #bg-photo{
+        background-color: #0b0b0b;
+        background-image: radial-gradient(#2a2d60 0.5px, #000000 0.5px);
+        background-size: 10px 10px;
+    }
+}
+
+.slide-in{
+    animation: slidein 1s ease 0s 1 normal forwards;
+}
+.lagos{
+    animation: myAnim .7s ease-in-out 0s 1 normal forwards;
+}
+.slide-in-right{
+    animation: slideinRight .7s ease-in-out 0s 1 normal forwards;
+}
+.text-shadow{
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+}
+
+@keyframes slidein {
+	0% {
+		opacity: 0;
+		transform: translateX(-50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes myAnim {
+	0% {
+		transform: scale(0);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes slideinRight {
+	0% {
+		opacity: 0;
+		transform: translateX(50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
