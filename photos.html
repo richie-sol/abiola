@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="../node_modules/lightbox2/dist/css/lightbox.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link href="/node_modules/lightbox2/dist/css/lightbox.css" rel="stylesheet" />
     <title>Portfolio</title>
 </head>
 <body >
     <div class="grid min-h-[140px] w-full place-items-center overflow-x-scroll p-6 lg:overflow-visible bg-orange-100">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">
+
           <a href="abiola-images/0R8A0166-min.jpg" data-lightbox="abiola">
           
             <img class="object-cover object-center h-100 max-w-full rounded-md md:h-100 shadow-md hover:scale-[1.02] duration-300 transition"
@@ -16,12 +18,14 @@
               alt=""
               loading="lazy" />
           </a>
+
           <a href="abiola-images/Anita2270-min.jpg" data-lightbox="abiola">
             <img class="object-cover object-center h-100 max-w-full rounded-md md:h-100 shadow-md hover:scale-[1.02] duration-300 transition"
               src="abiola-images/Anita2270-min.jpg"
               alt=""
               loading="lazy" />
           </a>
+
           <a href="abiola-images/4U2A0190 (1).jpg" data-lightbox="abiola">
             <img class="object-cover object-center h-100 max-w-full rounded-md md:h-100 shadow-md hover:scale-[1.02] duration-300 transition"
               src="abiola-images/4U2A0190 (1).jpg"
@@ -242,6 +246,10 @@
          
          
         </div>
+
+
+
+        
         <div class="flex items-center justify-center space-x-6 mt-10">
             <a href="https://www.instagram.com/ade.works?igsh=d3ZyZzFwY3JmOGM3" target="_blank">
                 <svg class="hover:scale-[1.15] transition duration-200 cursor-pointer"  xmlns="http://www.w3.org/2000/svg" width="30" height="30"  
@@ -265,27 +273,15 @@ fill="#000" viewBox="0 0 24 24" >
             </a>
         </div>
 
-        <a href="#" id="scroll-to-top" class="fixed bottom-4 right-4 text-white bg-black rounded-full p-2 hover:bg-blue-700">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <a href="#" id="scroll-to-top" class="fixed bottom-4 right-4 text-white bg-black rounded-full p-2 hover:bg-orange-700">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7m0 0l7 7M5 15h14"></path>
           </svg>
         </a>
       </div>
 
-      
-      <script src="../node_modules/lightbox2/dist/js/lightbox-plus-jquery.js">
-        
-      </script>
-      <!-- <script>
-        lightbox.option({
-          'resizeDuration': 500,
-          'wrapAround': true,
-          'disableScrolling':true,
-          'fadeDuration':300,
-          'imageFadeDuration':400,
-          'alwaysShowNavOnTouchDevices':true
-        });
-      </script> -->
+      <script src="script.js"></script>
+      <script src="/node_modules/lightbox2/dist/js/lightbox-plus-jquery.js"></script>
       <script>
         function setupLightbox() {
           const isMobile = window.innerWidth <= 768 || 
@@ -324,6 +320,6 @@ fill="#000" viewBox="0 0 24 24" >
           setupLightbox();
         });
       </script>
-      <script src="script.js"></script>
+      
 </body>
 </html>
