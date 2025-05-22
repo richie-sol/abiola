@@ -564,14 +564,6 @@ video {
   position: fixed;
 }
 
-.absolute {
-  position: absolute;
-}
-
-.relative {
-  position: relative;
-}
-
 .bottom-4 {
   bottom: 1rem;
 }
@@ -752,14 +744,6 @@ video {
 
 .bg-transparent {
   background-color: transparent;
-}
-
-.bg-black\/50 {
-  background-color: rgb(0 0 0 / 0.5);
-}
-
-.bg-black\/90 {
-  background-color: rgb(0 0 0 / 0.9);
 }
 
 .object-cover {
