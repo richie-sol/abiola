@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script type="text/javascript" src="https://res.cloudinary.com/veseylab/raw/upload/v1684982764/magicmouse-2.0.0.cdn.min.js"></script>
-
 
     <!-- Font awesome CDN-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -29,6 +27,7 @@
     <title>Portfolio</title>
 </head>
 <body >
+  <div id="circle"></div>
     <div class="grid min-h-[140px] w-full place-items-center overflow-x-scroll p-6 lg:overflow-visible bg-orange-100">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">
 
@@ -455,18 +454,33 @@ lenis.on('scroll', (e) => {
         });
       </script>
 
-      <script type="text/javascript">
-        options = {
-      "cursorOuter": "circle",
-      "hoverEffect": "circle-move",
-      "hoverItemMove": false,
-      "defaultCursor": true,
-      "outerWidth": 30,
-      "outerHeight": 30,
-      "cursorBorderColor": 'yellow',
-          };
-        magicMouse(options);
-    </script>
+      <script>
+        const circle = document.getElementById('circle');
+    
+        let mouseX = 0;
+        let mouseY = 0;
+    
+        let currentX = 0;
+        let currentY = 0;
+    
+        document.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+        });
+    
+        function animate() {
+          // Smooth interpolation (lerp)
+          currentX += (mouseX - currentX) * 0.1;
+          currentY += (mouseY - currentY) * 0.1;
+    
+          circle.style.left = `${currentX}px`;
+          circle.style.top = `${currentY}px`;
+    
+          requestAnimationFrame(animate);
+        }
+    
+        animate(); // Start animation loop
+      </script>
       
 </body>
 </html>
