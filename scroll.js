@@ -15,3 +15,9 @@ scrollToTopBtn.addEventListener('click', (e) => {
       behavior: 'smooth',
     });
   });
+
+const footerEl = document.getElementById("copy")
+
+const yearEl = new Date().getFullYear()
+
+footerEl.innerHTML = `<p>&copy; ${yearEl} ade.works. All Rights Reserved.</p>`
