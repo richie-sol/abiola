@@ -91,6 +91,11 @@
         }
     
         animate(); // Start animation loop
+
+        if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+          // Hide the circle on touch devices
+          document.getElementById('circle').style.display = 'none';
+        }
       </script>
 </body>
 </html>

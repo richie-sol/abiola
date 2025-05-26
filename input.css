@@ -29,7 +29,11 @@
 	pointer-events: none;
 	transform: translate(-50%, -50%);
   }
-
+ @media (hover: none) and (pointer: coarse) {
+	#circle {
+	  display: none;
+	}
+  }
 
 .visibility{
 	display:none;
