@@ -385,11 +385,98 @@
       <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
       <!-- Lenis JS-->
-      <script src="lenis.js"></script>
+      <script>
+        const lenis = new Lenis({
+          autoRaf: true,
+          wheelMultiplier:1.5,
+        });
+        
+        // Listen for the scroll event and log the event data
+        lenis.on('scroll', (e) => {
+          console.log(e);
+        });
+        
+        
+        // Use requestAnimationFrame to continuously update the scroll
+                function raf(time) {
+                  lenis.raf(time);
+                  requestAnimationFrame(raf);
+                }
+        
+                requestAnimationFrame(raf);
+      </script>
       <!-- Lightbox JS -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
-      <script src="lightbox.js"></script>
-      <script src="cursor.js"></script>
+      <script>
+        function setupLightbox() {
+          const isMobile = window.innerWidth <= 768 || 
+            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+          
+          if (isMobile) {
+            // Remove lightbox functionality on mobile
+            $('[data-lightbox]').each(function() {
+              $(this).off('click.lightbox');
+              $(this).click(function(e) {
+                 //Optional: open image in new tab instead
+                window.open($(this).attr('href'), '_blank');
+                e.preventDefault();
+              });
+            });
+            
+          } else {
+            // Desktop lightbox options
+            lightbox.option({
+              'resizeDuration': 500,
+              'wrapAround': true,
+              'albumLabel': 'Image %1 of %2',
+              'disableScrolling':true,
+          'fadeDuration':300,
+          'imageFadeDuration':400,
+          'alwaysShowNavOnTouchDevices':true
+            });
+          }
+        }
+        
+        // Run on page load
+        $(document).ready(setupLightbox);
+        
+        // Re-run on window resize (for device orientation changes)
+        $(window).resize(function() {
+          setupLightbox();
+        });
+      </script>
+      <script>
+        const circle = document.getElementById('circle');
+    
+let mouseX = 0;
+let mouseY = 0;
+
+let currentX = 0;
+let currentY = 0;
+
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+function animate() {
+  // Smooth interpolation (lerp)
+  currentX += (mouseX - currentX) * 0.1;
+  currentY += (mouseY - currentY) * 0.1;
+
+  circle.style.left = `${currentX}px`;
+  circle.style.top = `${currentY}px`;
+
+  requestAnimationFrame(animate);
+}
+
+animate(); // Start animation loop
+
+if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+  // Hide the circle on touch devices
+  document.getElementById('circle').style.display = 'none';
+}
+      </script>
       
 </body>
 </html>
