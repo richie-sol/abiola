@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
     <!-- Font awesome CDN-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -16,14 +14,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Figtree:ital,wght@0,300..900;1,300..900&family=Happy+Monkey&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend+Deca:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Overlock:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Overpass:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sora:wght@100..800&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 
-
 <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
-
 <!-- Lightbox -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
-
-
     <title>Portfolio</title>
 </head>
 <body >
@@ -391,102 +385,11 @@
       <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
       <!-- Lenis JS-->
-      <script>
-          // Initialize Lenis
-const lenis = new Lenis({
-  autoRaf: true,
-  wheelMultiplier:1.5,
-});
-
-// Listen for the scroll event and log the event data
-lenis.on('scroll', (e) => {
-  console.log(e);
-});
-
-
-// Use requestAnimationFrame to continuously update the scroll
-        function raf(time) {
-          lenis.raf(time);
-          requestAnimationFrame(raf);
-        }
-
-        requestAnimationFrame(raf);
-      </script>
-
-
+      <script src="lenis.js"></script>
       <!-- Lightbox JS -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
-      <script>
-        function setupLightbox() {
-          const isMobile = window.innerWidth <= 768 || 
-            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-          
-          if (isMobile) {
-            // Remove lightbox functionality on mobile
-            $('[data-lightbox]').each(function() {
-              $(this).off('click.lightbox');
-              $(this).click(function(e) {
-                 //Optional: open image in new tab instead
-                window.open($(this).attr('href'), '_blank');
-                e.preventDefault();
-              });
-            });
-            
-          } else {
-            // Desktop lightbox options
-            lightbox.option({
-              'resizeDuration': 500,
-              'wrapAround': true,
-              'albumLabel': 'Image %1 of %2',
-              'disableScrolling':true,
-          'fadeDuration':300,
-          'imageFadeDuration':400,
-          'alwaysShowNavOnTouchDevices':true
-            });
-          }
-        }
-        
-        // Run on page load
-        $(document).ready(setupLightbox);
-        
-        // Re-run on window resize (for device orientation changes)
-        $(window).resize(function() {
-          setupLightbox();
-        });
-      </script>
-
-      <script>
-        const circle = document.getElementById('circle');
-    
-        let mouseX = 0;
-        let mouseY = 0;
-    
-        let currentX = 0;
-        let currentY = 0;
-    
-        document.addEventListener('mousemove', (e) => {
-          mouseX = e.clientX;
-          mouseY = e.clientY;
-        });
-    
-        function animate() {
-          // Smooth interpolation (lerp)
-          currentX += (mouseX - currentX) * 0.1;
-          currentY += (mouseY - currentY) * 0.1;
-    
-          circle.style.left = `${currentX}px`;
-          circle.style.top = `${currentY}px`;
-    
-          requestAnimationFrame(animate);
-        }
-    
-        animate(); // Start animation loop
-
-        if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-          // Hide the circle on touch devices
-          document.getElementById('circle').style.display = 'none';
-        }
-      </script>
+      <script src="lightbox.js"></script>
+      <script src="cursor.js"></script>
       
 </body>
 </html>
